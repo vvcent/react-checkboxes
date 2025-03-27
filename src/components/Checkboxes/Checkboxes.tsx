@@ -54,7 +54,7 @@ const Checkboxes = (props: ICheckboxesProps) => {
 			)}
 
 			<div
-				className="grid"
+				className="grid gap-2 overflow-x-auto"
 				style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
 			>
 				{props.options.map((option) => (

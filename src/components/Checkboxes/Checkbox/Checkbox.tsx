@@ -3,7 +3,7 @@ import ICheckboxProps from './ICheckboxProps'
 const Checkbox = (props: ICheckboxProps) => {
 	return (
 		<div
-			className={`flex items-center gap-2 cursor-pointer ${props.className}`}
+			className={`flex items-center gap-2 cursor-pointer min-w-[120px] overflow-ellipsis`}
 			onClick={() => props.onChange(!props.checked)}
 		>
 			<div
