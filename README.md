@@ -1,54 +1,82 @@
-# React + TypeScript + Vite
+# React Checkboxes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A flexible and customizable checkbox component for React applications.
 
-Currently, two official plugins are available:
+## Usage
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Basic Usage
 
-## Expanding the ESLint configuration
+The most basic usage with default settings:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```tsx
+<Checkboxes
+	options={[
+		{
+			label: 'Option 1',
+			value: 'option1',
+		},
+		{
+			label: 'Option 2',
+			value: 'option2',
+		},
+		{
+			label: 'Option 3',
+			value: 'option3',
+		},
+	]}
+/>
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Advanced Usage with Settings
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+You can customize the layout and behavior using settings:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```tsx
+<Checkboxes
+	settings={{
+		columns: 5,
+	}}
+	options={[
+		{
+			label: 'Option 1',
+			value: 'option1',
+		},
+		// ... more options
+	]}
+	defaultSelected={['option1', 'option2']}
+	onChange={(selectedValues) => {
+		console.log(selectedValues)
+	}}
+/>
 ```
+
+### Large Datasets
+
+The component can handle large datasets efficiently:
+
+```tsx
+<Checkboxes
+	settings={{
+		columns: 10,
+	}}
+	options={[
+		...Array.from({ length: 500 }, (_, index) => ({
+			label: `Option ${index + 1}`,
+			value: `option${index + 1}`,
+		})),
+	]}
+	defaultSelected={['option1', 'option2', 'option5', 'option7']}
+	onChange={(selectedValues) => {
+		console.log(selectedValues)
+	}}
+/>
+```
+
+## Props
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `options` | `Array<{ label: string, value: string }>` | Array of checkbox options |
+| `settings` | `{ columns?: number }` | Optional settings for layout customization |
+| `defaultSelected` | `string[]` | Array of pre-selected values |
+| `onChange` | `(selectedValues: string[]) => void` | Callback function when selection changes |

@@ -6,7 +6,7 @@ const App = () => {
 			<h1 className="text-2xl font-bold">React Checkboxes</h1>
 
 			<div className="flex flex-col gap-2">
-				<h2 className="text-xl font-bold">Default</h2>
+				<h2 className="text-xl font-bold">Basic Usage</h2>
 				<Checkboxes
 					options={[
 						{
@@ -26,7 +26,9 @@ const App = () => {
 			</div>
 
 			<div className="flex flex-col gap-2">
-				<h2 className="text-xl font-bold">With Settings</h2>
+				<h2 className="text-xl font-bold">
+					Advanced Usage with Settings
+				</h2>
 				<Checkboxes
 					settings={{
 						columns: 5,
@@ -81,7 +83,7 @@ const App = () => {
 			</div>
 
 			<div className="flex flex-col gap-2">
-				<h2 className="text-xl font-bold">With 500 options</h2>
+				<h2 className="text-xl font-bold">Large Datasets</h2>
 				<Checkboxes
 					settings={{
 						columns: 10,
