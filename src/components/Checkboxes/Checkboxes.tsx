@@ -53,21 +53,24 @@ const Checkboxes = (props: ICheckboxesProps) => {
 				</div>
 			)}
 
-			<div
-				className="grid gap-2 overflow-x-auto"
-				style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
-			>
-				{props.options.map((option) => (
-					<Checkbox
-						key={option.value}
-						label={option.label}
-						value={option.value}
-						checked={selectedValues.has(option.value)}
-						onChange={(checked) =>
-							handleCheckboxChange(option.value, checked)
-						}
-					/>
-				))}
+			<div className="relative">
+				<div className="absolute right-0 top-0 w-[30px] h-full bg-gradient-to-r from-transparent to-white" />
+				<div
+					className="grid gap-2 overflow-x-auto pr-[30px]"
+					style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
+				>
+					{props.options.map((option) => (
+						<Checkbox
+							key={option.value}
+							label={option.label}
+							value={option.value}
+							checked={selectedValues.has(option.value)}
+							onChange={(checked) =>
+								handleCheckboxChange(option.value, checked)
+							}
+						/>
+					))}
+				</div>
 			</div>
 		</div>
 	)
