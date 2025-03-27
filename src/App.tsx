@@ -2,7 +2,7 @@ import Checkboxes from '@/components/Checkboxes/Checkboxes'
 
 const App = () => {
 	return (
-		<div className="p-10 flex flex-col gap-5">
+		<div className="p-5 md:p-10 flex flex-col gap-5">
 			<Checkboxes
 				options={[
 					{
